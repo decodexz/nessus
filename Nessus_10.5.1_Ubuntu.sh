@@ -9,9 +9,7 @@ sudo apt-get install curl dpkg expect -y &>/dev/null
 echo " o stopping old nessusd in case there is one!"
 /bin/systemctl stop nessusd.service &>/dev/null
 echo " o downloading Nessus.."
-curl -A Mozilla --request GET \
-  --url 'https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.5.1-ubuntu1404_amd64.deb' \
-  --output 'Nessus-10.5.1-ubuntu1404_amd64.deb' &>/dev/null
+wget https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.5.1-ubuntu1404_amd64.deb
 { if [ ! -f Nessus-10.5.1-ubuntu1404_amd64.deb ]; then
   echo " o nessus download failed :/ exiting. get copy of it from t.me/vouuvhb"
   exit 0
