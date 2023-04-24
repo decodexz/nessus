@@ -5,7 +5,7 @@ echo   Nessus 10.5.1 DOWNLOAD, INSTALL By TinyActive
 echo //==============================================================
 echo " o making sure we have prerequisites.."
 sudo apt-get update &>/dev/null
-sudo apt-get install curl dpkg expect -y &>/dev/null
+sudo apt-get install curl wget dpkg expect -y &>/dev/null
 echo " o stopping old nessusd in case there is one!"
 /bin/systemctl stop nessusd.service &>/dev/null
 echo " o downloading Nessus.."
