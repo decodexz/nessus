@@ -90,16 +90,6 @@ echo " o starting service.."
 rm -r all-2.0.tar.gz &>/dev/null
 /bin/systemctl start nessusd.service &>/dev/null
 echo " o Let's sleep for another 20 seconds to let the server have time to start!"
-sleep 20
-echo " o Monitoring Nessus progress. Following line updates every 10 seconds until 100%"
-zen=0
-while [ $zen -ne 100 ]
-do
- statline=$(curl -sL -k https://localhost:11127/server/status|awk -F"," -v k="engine_status" '{ gsub(/{|}/,""); for(i=1;i<=NF;i++) { if ( $i ~ k ){printf $i} } }')
- if [[ $statline != *"engine_status"* ]]; then echo -ne "\n Problem: Nessus server unreachable? Trying again..\n"; fi
- echo -ne "\r $statline"
- if [[ $statline == *"100"* ]]; then zen=100; else sleep 10; fi
-done
 echo -ne '\n  o Done!\n'
 echo
 echo "        Access your Nessus:  https://localhost:11127/ (or your VPS IP)"
