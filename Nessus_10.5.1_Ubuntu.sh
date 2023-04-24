@@ -2,7 +2,6 @@
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 echo //==============================================================
 echo   Nessus 10.5.1 DOWNLOAD, INSTALL By TinyActive
-echo   special thanks to John Doe for showing this works on Debian 
 echo //==============================================================
 echo " o making sure we have prerequisites.."
 sudo apt-get update &>/dev/null
